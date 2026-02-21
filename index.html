@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorías - ANDRES VALENCIA Experto en Matemáticas</title>
+
+  <style>
+    /* ===== ESTILOS GENERALES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+
+    /* ===== TÍTULOS DE SECCIÓN ===== */
+    .section-title {
+      text-align: center;
+      color: white;
+      font-size: 2.2em;
+      margin: 50px 0 30px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ===== TARJETAS GENERALES ===== */
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 5px solid #667eea;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+    }
+
+    .card h2 {
+      color: #667eea;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .card h3 {
+      color: #764ba2;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    /* ===== GRID DE TARJETAS ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .cards-grid .card {
+      border-top: 5px solid #667eea;
+    }
+
+    /* ===== EMOJIS ===== */
+    .emoji {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ===== LISTAS ===== */
+    ul, ol {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li, ol li {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+      color: #555;
+    }
+
+    ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    ol {
+      padding: 0;
+    }
+
+    ol li {
+      padding-left: 0;
+    }
+
+    ol li:before {
+      content: "";
+      position: static;
+    }
+
+    /* ===== BOTÓN WHATSAPP ===== */
+    .whatsapp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #25d366 0%, #1ba961 100%);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 10px 10px 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-btn-large {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 18px;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    /* ===== GRID DE PRECIOS ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      border: 3px solid #667eea;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .pricing-card h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .pricing-card .emoji {
+      font-size: 2.2em;
+    }
+
+    .price {
+      font-size: 2em;
+      color: #764ba2;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    /* ===== FORMULARIO ===== */
+    .contact-info {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 15px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.7em;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== CONTENEDOR PRINCIPAL ===== -->
+  <div class="container">
+
+    <!-- ===== HEADER / ENCABEZADO ===== -->
+    <header>
+      <h1>📚 TUTORÍAS DE MATEMÁTICAS 📚</h1>
+      <p>¡Aprende Matemáticas de forma fácil y divertida!</p>
+      <div class="btn-group">
+        <a href="https://wa.me/573158876852?text=Hola!%20Me%20interesa%20conocer%20tus%20tutorías%20de%20matemáticas." class="whatsapp-btn">💬 Contactanos por WhatsApp</a>
+      </div>
+    </header>
+
+    <!-- ===== SECCIÓN: ¿QUÉ OFRECEMOS? ===== -->
+    <h2 class="section-title">✨ ¿Qué Ofrecemos? ✨</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="emoji">📖</span>
+        <h3>Explicaciones Claras</h3>
+        <p>Entiende cada tema de matemáticas con explicaciones sencillas y ejercicios paso a paso.</p>
+      </div>
+
+      <div class="card">
+        <span class="emoji">🎯</span>
+        <h3>Resolución de Dudas</h3>
+        <p>Resolvemos todas tus dudas sobre problemas matemáticos complicados.</p>
+      </div>
+
+      <div class="card">
+        <span class="emoji">🏆</span>
+        <h3>Preparación para Exámenes</h3>
+        <p>Te preparamos intensivamente para tus exámenes y pruebas académicas.</p>
+      </div>
+
+      <div class="card">
+        <span class="emoji">💪</span>
+        <h3>Tutoría Personalizada</h3>
+        <p>Cada sesión es adaptada a tu ritmo y necesidades específicas.</p>
+      </div>
+
+      <div class="card">
+        <span class="emoji">⏱️</span>
+        <h3>Horarios Flexibles</h3>
+        <p>Elige el horario que mejor se adapte a tu agenda de estudios.</p>
+      </div>
+
+      <div class="card">
+        <span class="emoji">🎓</span>
+        <h3>Técnicas de Estudio</h3>
+        <p>Aprende métodos efectivos para estudiar y recordar todo lo aprendido.</p>
+      </div>
+    </div>
+
+    <!-- ===== SECCIÓN: TEMAS QUE CUBRIMOS ===== -->
+    <h2 class="section-title">📊 Temas Que Cubrimos 📊</h2>
+    <div class="card">
+      <ul>
+        <li>Álgebra (ecuaciones, polinomios, factorización)</li>
+        <li>Aritmética (números, operaciones básicas)</li>
+        <li>Geometría (formas, áreas, volúmenes)</li>
+        <li>Trigonometría (senos, cosenos, tangentes)</li>
+        <li>Cálculo (límites, derivadas, integrales)</li>
+        <li>Estadística y Probabilidad</li>
+      </ul>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="https://wa.me/573158876852?text=Hola!%20Tengo%20dudas%20sobre..." class="whatsapp-btn">💬 Cuéntanos tu Tema</a>
+      </div>
+    </div>
+
+    <!-- ===== SECCIÓN: PLANES Y PRECIOS ===== -->
+    <h2 class="section-title">💰 Planes y Precios 💰</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <span class="emoji">⏰</span>
+        <h3>Sesión Individual</h3>
+        <p>90 minutos de tutoría personalizada</p>
+        <div class="price">$60.000</div>
+        <a href="https://wa.me/573158876852?text=Me%20interesa%20una%20sesión%20individual" class="whatsapp-btn">Reservar</a>
+      </div>
+
+      <div class="pricing-card">
+        <span class="emoji">📦</span>
+        <h3>Paquete Básico</h3>
+        <p>4 sesiones (Ahorra 10%)</p>
+        <div class="price">$216.000</div>
+        <a href="https://wa.me/573158876852?text=Me%20interesa%20el%20paquete%20básico" class="whatsapp-btn">Reservar</a>
+      </div>
+
+      <div class="pricing-card">
+        <span class="emoji">🌟</span>
+        <h3>Paquete Premium</h3>
+        <p>8 sesiones (Ahorra 20%)</p>
+        <div class="price">$384.000</div>
+        <a href="https://wa.me/573158876852?text=Me%20interesa%20el%20paquete%20premium" class="whatsapp-btn">Reservar</a>
+      </div>
+
+      <div class="pricing-card">
+        <span class="emoji">🎓</span>
+        <h3>Plan Universitario</h3>
+        <p>12 sesiones + material exclusivo</p>
+        <div class="price">$576.000</div>
+        <a href="https://wa.me/573158876852?text=Me%20interesa%20el%20plan%20universitario" class="whatsapp-btn">Reservar</a>
+      </div>
+    </div>
+
+    <!-- ===== SECCIÓN: CÓMO COMENZAR ===== -->
+    <h2 class="section-title">🚀 ¡Comenzar es Fácil! 🚀</h2>
+    <div class="card">
+      <ol style="padding-left: 20px; color: #555;">
+        <li style="margin-bottom: 15px;"><strong>Contáctanos</strong> por WhatsApp</li>
+        <li style="margin-bottom: 15px;"><strong>Cuéntanos</strong> qué necesitas aprender</li>
+        <li style="margin-bottom: 15px;"><strong>Elige</strong> tu horario preferido</li>
+        <li style="margin-bottom: 15px;"><strong>¡Comienza!</strong> tu camino hacia el éxito</li>
+      </ol>
+      <div style="text-align: center; margin-top: 25px;">
+        <a href="https://wa.me/573158876852?text=Hola!%20Quiero%20comenzar%20con%20las%20tutorías" class="whatsapp-btn whatsapp-btn-large">💬 Escríbenos Ahora</a>
+      </div>
+    </div>
+
+    <!-- ===== SECCIÓN: FORMULARIO DE CONTACTO ===== -->
+    <h2 class="section-title">📋 Formulario de Contacto 📋</h2>
+    <div class="contact-info">
+      <form style="border-radius: 12px;">
+        <div class="form-group">
+          <label for="nombre">👤 Tu Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">📧 Tu Correo:</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="grado">🎓 Tu Grado/Nivel:</label>
+          <input type="text" id="grado" name="grado" placeholder="Ej: 9°, 10°, 11°, Universidad" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tema">📐 Tema Que Necesitas:</label>
+          <input type="text" id="tema" name="tema" placeholder="Ej: Ecuaciones, Geometría..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">💭 Cuéntanos Más:</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="4"></textarea>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="enviarPorWhatsapp()">Enviar por WhatsApp</button>
+      </form>
+    </div>
+
+    <!-- ===== SECCIÓN: INFORMACIÓN DE CONTACTO ===== -->
+    <h2 class="section-title">📱 ¡Contáctanos Ahora! 📱</h2>
+    <div class="contact-info">
+      <h3 style="text-align: center; color: #667eea; margin-bottom: 25px;">Hablemos Pronto</h3>
+      <div style="text-align: center;">
+        <p style="font-size: 1.1em; margin-bottom: 20px;">
+          <strong>WhatsApp:</strong> 
+          <a href="https://wa.me/573158876852">+57 315 887 6852</a>
+        </p>
+
+        <p style="font-size: 1.1em; margin-bottom: 20px;">
+          <strong>📅 Disponibles:</strong><br>
+          Lunes a viernes: 3pm - 8pm<br>
+          Sábados: 10am - 5pm
+        </p>
+
+        <p style="color: #666; margin-bottom: 20px;">
+          ⚡ Somos muy rápidos en responder.<br>
+          ¡Escríbenos ahora sin costo!
+        </p>
+
+        <div style="text-align: center;">
+          <a href="https://wa.me/573158876852?text=Hola!%20Quiero%20más%20información%20sobre%20tus%20tutorías" class="whatsapp-btn whatsapp-btn-large">💚 Abrir WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p><strong>ANDRES VALENCIA</strong></p>
+    <p>Experto en Matemáticas | Tutorías Personalizadas</p>
+    <p>© 2026 Todos los derechos reservados</p>
+    <p style="margin-top: 15px; font-size: 0.9em;">Tu éxito académico es nuestro objetivo ✨</p>
+  </footer>
+
+  <!-- ===== SCRIPT: ENVIAR POR WHATSAPP ===== -->
+  <script>
+    function enviarPorWhatsapp() {
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const grado = document.getElementById('grado').value;
+      const tema = document.getElementById('tema').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      // Validar campos requeridos
+      if (!nombre || !email || !grado || !tema) {
+        alert('Por favor completa todos los campos requeridos 📝');
+        return;
+      }
+
+      // Construir mensaje para WhatsApp
+      const mensajeWhatsapp = `Hola! Soy ${nombre}%0A%0AMi correo es: ${email}%0AGrado/Nivel: ${grado}%0ATema que necesito: ${tema}%0A%0A${mensaje}%0A%0a(Mensaje desde el formulario web)`;
+
+      // Abrir WhatsApp
+      window.open(`https://wa.me/573158876852?text=${mensajeWhatsapp}`, '_blank');
+    }
+  </script>
+
+</body>
+
+</html>
